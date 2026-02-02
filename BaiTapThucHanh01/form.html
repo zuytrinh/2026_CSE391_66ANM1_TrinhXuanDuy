@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Employee Form</title>
+  <style>
+    :root{
+      --border:#cfcfcf;
+      --text:#222;
+      --muted:#666;
+      --bg:#f4f4f4;
+      --panel:#fff;
+      --input:#fff;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      padding:24px;
+    }
+    .page{
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 18px 18px 12px;
+    }
+
+    /* Section title like screenshot */
+    .section-title{
+      font-size: 14px;
+      font-weight: 700;
+      margin: 10px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    /* Grid rows: label column + field column */
+    .row{
+      display:grid;
+      grid-template-columns: 160px 1fr;
+      gap: 10px;
+      align-items:center;
+      margin: 6px 0;
+    }
+
+    .label{
+      font-size: 12px;
+      color: var(--text);
+    }
+
+    .hint{
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="tel"],
+    input[type="password"],
+    select,
+    textarea{
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--input);
+      padding: 6px 8px;
+      font-size: 12px;
+      border-radius: 2px;
+      outline: none;
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+
+    .inline{
+      display:flex;
+      gap: 14px;
+      align-items:center;
+      flex-wrap: wrap;
+    }
+    .inline label{
+      font-size: 12px;
+      color: var(--text);
+      display:flex;
+      gap: 6px;
+      align-items:center;
+    }
+
+    /* Small "id" look */
+    .readonly{
+      padding: 6px 8px;
+      font-size: 12px;
+      background: #fafafa;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+    }
+
+    /* Bottom bar like screenshot */
+    .footer{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      border-top: 1px solid #e6e6e6;
+      margin-top: 14px;
+      padding-top: 12px;
+      gap: 10px;
+    }
+    .required-note{
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .actions{
+      display:flex;
+      gap: 8px;
+    }
+    .btn{
+      border: 1px solid var(--border);
+      background: #efefef;
+      padding: 6px 12px;
+      font-size: 12px;
+      border-radius: 2px;
+      cursor:pointer;
+    }
+    .btn.primary{
+      background: #e2e2e2;
+      font-weight: 700;
+    }
+
+    /* Optional: make fields a bit tighter like a form tool */
+    .row.compact input,
+    .row.compact select{ padding: 5px 8px; }
+
+    /* Captcha-ish line */
+    .captcha{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .captcha-code{
+      font-family: "Courier New", monospace;
+      font-size: 22px;
+      letter-spacing: 3px;
+      color:#444;
+      padding: 4px 8px;
+      border: 1px dashed #bbb;
+      background:#fafafa;
+      user-select:none;
+    }
+    .captcha a{
+      font-size: 11px;
+      color:#555;
+      text-decoration: none;
+    }
+    .captcha a:hover{ text-decoration: underline; }
+
+    /* Make it responsive */
+    @media (max-width: 560px){
+      .row{ grid-template-columns: 1fr; }
+      .label{ margin-bottom: -4px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <form>
+
+      <div class="section-title">Basic Info</div>
+
+      <div class="row compact">
+        <div class="label">Employee ID</div>
+        <div class="readonly">9</div>
+      </div>
+
+      <div class="row compact">
+        <div class="label">Last Name</div>
+        <input type="text" name="lastName" value="Dodsworth" />
+      </div>
+
+      <div class="row compact">
+        <div class="label">First Name</div>
+        <input type="text" name="firstName" value="Anne" />
+      </div>
+
+      <div class="row">
+        <div class="label">Gender</div>
+        <div class="inline">
+          <label><input type="radio" name="gender" value="male" /> Male</label>
+          <label><input type="radio" name="gender" value="female" /> Female</label>
+          <label><input type="radio" name="gender" value="xxx" /> XXX</label>
+          <label><input type="radio" name="gender" value="zzz" checked /> ZZZ</label>
+        </div>
+      </div>
+
+      <div class="row compact">
+        <div class="label">Title</div>
+        <input type="text" name="title" value="Sales Representative" />
+      </div>
+
+      <div class="row compact">
+        <div class="label">Suffix</div>
+        <input type="text" name="suffix" value="Ms." />
+      </div>
+
+      <div class="row compact">
+        <div class="label">BirthDate</div>
+        <input type="text" name="birthDate" value="1969-07-02 00:00:00" />
+      </div>
+
+      <div class="row compact">
+        <div class="label">HireDate</div>
+        <input type="text" name="hireDate" value="1994-11-15 00:00:00" />
+      </div>
+
+      <div class="row compact">
+        <div class="label">SSN (if applicable)</div>
+        <input type="text" name="ssn" placeholder="" />
+      </div>
+
+      <div class="row compact">
+        <div class="label">Reports To</div>
+        <select name="reportsTo">
+          <option>Buchanan</option>
+          <option>Fuller</option>
+          <option>Leverling</option>
+        </select>
+      </div>
+
+
+      <div class="section-title">Contact Info</div>
+
+      <div class="row compact">
+        <div class="label">Email</div>
+        <input type="email" name="email" placeholder="name@example.com" />
+      </div>
+
+      <div class="row compact">
+        <div class="label">Address</div>
+        <input type="text" name="address" value="7 Houndstooth Rd." />
+      </div>
+
+      <div class="row compact">
+        <div class="label">City</div>
+        <input type="text" name="city" value="London" />
+      </div>
+
+      <div class="row compact">
+        <div class="label">Region</div>
+        <input type="text" name="region" />
+      </div>
+
+      <div class="row compact">
+        <div class="label">Postal Code</div>
+        <input type="text" name="postal" value="WG2 7LT" />
+      </div>
+
+      <div class="row compact">
+        <div class="label">Country</div>
+        <select name="country">
+          <option>Russian Federation</option>
+          <option>Viet Nam</option>
+          <option>United Kingdom</option>
+        </select>
+      </div>
+
+      <div class="row compact">
+        <div class="label">US Home Phone</div>
+        <input type="tel" name="phone" value="(234)234-2342" />
+      </div>
+
+      <div class="row compact">
+        <div class="label">Photo</div>
+        <input type="text" name="photo" value="EmpID9.bmp" />
+      </div>
+
+
+      <div class="section-title">Optional Info</div>
+
+      <div class="row">
+        <div class="label">Notes</div>
+        <textarea name="notes">Anne has a BA degree in English from St. Lawrence College.
+She is fluent in French and German.ZZZ</textarea>
+      </div>
+
+      <div class="row">
+        <div class="label">Preferred Shift</div>
+        <div class="inline">
+          <label><input type="radio" name="shift" value="regular" /> Regular</label>
+          <label><input type="radio" name="shift" value="graveyard" /> Gravy Yard</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">Active?</div>
+        <div class="inline">
+          <label><input type="checkbox" name="active" checked /> </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">Are you human?</div>
+        <div>
+          <div class="captcha">
+            <div class="captcha-code">IIDAWQ</div>
+            <a href="#" onclick="return false;">Click to change</a>
+          </div>
+          <div style="margin-top:8px;">
+            <input type="text" name="captcha" />
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="required-note">* required</div>
+        <div class="actions">
+          <button class="btn primary" type="submit">Submit</button>
+          <button class="btn" type="button" onclick="history.back()">Cancel</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</body>
+</html>
