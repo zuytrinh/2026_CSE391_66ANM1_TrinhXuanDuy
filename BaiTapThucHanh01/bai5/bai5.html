@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>HR Management</title>
+
+<style>
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  margin:0;
+  background:#f3f5f7;
+}
+
+/* Navbar full width */
+.navbar{
+  background:#111;
+  color:white;
+  padding:10px 20px;
+  display:flex;
+  align-items:center;
+}
+
+.navbar h2{
+  margin:0;
+  font-size:20px;
+}
+
+.nav-links{
+  margin-left:20px;
+}
+
+.nav-links a{
+  color:white;
+  text-decoration:none;
+  margin-right:12px;
+}
+
+.search-box{
+  margin-left:auto;
+}
+
+.search-box input{
+  padding:4px;
+}
+
+.search-box button{
+  padding:4px 8px;
+}
+
+/* Content wrapper */
+.content{
+  max-width:1100px;
+  margin:20px auto;
+}
+
+/* Employee section */
+.section-title{
+  font-size:22px;
+  margin-bottom:6px;
+}
+
+.add-btn{
+  float:right;
+  background:#2563eb;
+  color:white;
+  border:none;
+  padding:6px 12px;
+  border-radius:4px;
+  cursor:pointer;
+}
+
+table{
+  border-collapse:collapse;
+  width:100%;
+  margin-top:10px;
+  background:white;
+}
+
+th, td{
+  border:1px solid #ccc;
+  padding:8px;
+}
+
+th{
+  background:#eee;
+}
+
+tr:hover{
+  background:#f5faff;
+}
+
+.action button{
+  padding:4px 8px;
+  margin-right:4px;
+}
+
+.edit{
+  background:#facc15;
+  border:none;
+}
+
+.delete{
+  background:#ef4444;
+  color:white;
+  border:none;
+}
+
+/* New employee form */
+.form-box{
+  width:600px;
+  margin:40px auto;
+  background:white;
+  border:1px solid #ccc;
+}
+
+.form-header{
+  background:#2563eb;
+  color:white;
+  padding:8px;
+}
+
+.form-body{
+  padding:12px;
+}
+
+.form-body table{
+  border:none;
+}
+
+.form-body td{
+  border:none;
+}
+
+.form-footer{
+  text-align:right;
+  padding:10px;
+}
+
+.save{
+  background:#16a34a;
+  color:white;
+  border:none;
+  padding:6px 12px;
+}
+
+.cancel{
+  background:#aaa;
+  color:white;
+  border:none;
+  padding:6px 12px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="navbar">
+  <h2>HR Management</h2>
+
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <div class="search-box">
+    <input type="text" placeholder="Search">
+    <button>Search</button>
+  </div>
+</div>
+
+<div class="content">
+
+  <h2 class="section-title">Employee</h2>
+
+  <button class="add-btn">+ Add</button>
+
+  <div style="clear:both;"></div>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Position</th>
+      <th>Action</th>
+    </tr>
+
+    <tr>
+      <td>1</td>
+      <td>Fatima Beatriz</td>
+      <td>FatimaBeatriz@gmail.com</td>
+      <td>0985674321</td>
+      <td>Staff</td>
+      <td class="action">
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+      </td>
+    </tr>
+
+    <tr>
+      <td>2</td>
+      <td>Gabriel Hanna</td>
+      <td>GabrielHanna@gmail.com</td>
+      <td>0353674231</td>
+      <td>Staff</td>
+      <td class="action">
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+      </td>
+    </tr>
+
+    <tr>
+      <td>3</td>
+      <td>Charles Diya</td>
+      <td>CharlesDiya@gmail.com</td>
+      <td>0347658833</td>
+      <td>Staff</td>
+      <td class="action">
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+      </td>
+    </tr>
+
+    <tr>
+      <td>4</td>
+      <td>Frank Lamdo</td>
+      <td>FrankLamdo@gmail.com</td>
+      <td>0975444768</td>
+      <td>Manager</td>
+      <td class="action">
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+      </td>
+    </tr>
+
+    <tr>
+      <td>5</td>
+      <td>Louis Tom</td>
+      <td>LouisTom@gmail.com</td>
+      <td>0789568223</td>
+      <td>Staff</td>
+      <td class="action">
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+      </td>
+    </tr>
+  </table>
+
+  <div class="form-box">
+
+    <div class="form-header">
+      New Employee
+    </div>
+
+    <div class="form-body">
+      <table>
+        <tr>
+          <td>Name</td>
+          <td><input type="text"></td>
+          <td>Email</td>
+          <td><input type="email"></td>
+        </tr>
+
+        <tr>
+          <td>Phone</td>
+          <td><input type="text"></td>
+          <td>Position</td>
+          <td>
+            <select>
+              <option>-- Select Position --</option>
+              <option>Staff</option>
+              <option>Manager</option>
+              <option>CEO</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Sex</td>
+          <td colspan="3">
+            <input type="radio" name="sex"> Male
+            <input type="radio" name="sex"> Female
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="form-footer">
+      <button class="save">Save</button>
+      <button class="cancel">Cancel</button>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
