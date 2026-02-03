@@ -28,7 +28,7 @@ Bài này yêu cầu tạo form HTML đơn giản để nhập dữ liệu ngư�
 - Select option
 - Button
 
-Mục tiêu là hiểu cấu trúc form và cách thu thập dữ liệu từ người dùng.
+Mục tiêu là hiểu cấu trúc form.
 
 ### 🖼️ Minh chứng
 
