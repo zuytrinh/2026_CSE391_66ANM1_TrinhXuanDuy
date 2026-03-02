@@ -1,0 +1,113 @@
+/* --- Thiết lập cơ bản --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    line-height: 1.6;
+}
+
+#main-header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Georgia', serif;
+}
+
+/* --- TODO: Cải tiến nav bằng Flexbox --- */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background: #f8f9fa;
+    padding: 15px;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #ff6600;
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+/* --- Section Intro --- */
+.intro {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* --- TODO: Cải tiến .posts bằng Flexbox --- */
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* --- TODO: Cải tiến .card --- */
+.card {
+    flex: 1 1 300px; /* Responsive tự động: tối thiểu 300px, co giãn linh hoạt */
+    border: 1px solid #ddd;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* --- Button Style --- */
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: white;
+    margin-top: 40px;
+}
+
+/* --- TODO: Responsive (Màn hình < 768px) --- */
+@media (max-width: 768px) {
+    .posts {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card {
+        flex: 1 1 100%;
+        width: 100%; /* Đảm bảo card chiếm hết chiều ngang */
+    }
+}
+/* ... Giữ nguyên CSS cũ từ bài 3A ... */
+
