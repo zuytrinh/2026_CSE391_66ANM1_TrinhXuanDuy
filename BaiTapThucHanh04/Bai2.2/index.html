@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bài 2.2 - Form đặt hàng</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Form đặt hàng trực tuyến</h1>
+
+    <form id="orderForm" novalidate>
+      <div class="field">
+        <label for="product">Tên sản phẩm</label>
+        <select id="product">
+          <option value="">-- Chọn sản phẩm --</option>
+          <option value="ao">Áo thun</option>
+          <option value="quan">Quần jean</option>
+          <option value="giay">Giày thể thao</option>
+        </select>
+        <span class="error" id="productError"></span>
+      </div>
+
+      <div class="field">
+        <label for="quantity">Số lượng (1 - 99)</label>
+        <input type="number" id="quantity" min="1" max="99" />
+        <span class="error" id="quantityError"></span>
+      </div>
+
+      <div class="field">
+        <label for="deliveryDate">Ngày giao hàng</label>
+        <input type="date" id="deliveryDate" />
+        <span class="error" id="deliveryDateError"></span>
+      </div>
+
+      <div class="field">
+        <label for="address">Địa chỉ giao</label>
+        <textarea id="address" rows="3"></textarea>
+        <span class="error" id="addressError"></span>
+      </div>
+
+      <div class="field">
+        <label for="note">Ghi chú (tối đa 200 ký tự)</label>
+        <textarea id="note" rows="3"></textarea>
+        <div class="note-info">
+          <span id="noteCounter">0/200</span>
+        </div>
+        <span class="error" id="noteError"></span>
+      </div>
+
+      <div class="field">
+        <label>Phương thức thanh toán</label>
+        <div class="inline-group">
+          <label><input type="radio" name="payment" value="cod" /> COD</label>
+          <label><input type="radio" name="payment" value="bank" /> Chuyển khoản</label>
+          <label><input type="radio" name="payment" value="wallet" /> Ví điện tử</label>
+        </div>
+        <span class="error" id="paymentError"></span>
+      </div>
+
+      <div class="total-row">
+        <span>Tổng tiền:</span>
+        <strong id="totalPrice">0 đ</strong>
+      </div>
+
+      <button type="submit">Đặt hàng</button>
+    </form>
+
+    <div id="confirmPanel" class="confirm-panel" style="display:none;">
+      <h2>Xác nhận đặt hàng</h2>
+      <p><strong>Sản phẩm:</strong> <span id="cfProduct"></span></p>
+      <p><strong>Số lượng:</strong> <span id="cfQuantity"></span></p>
+      <p><strong>Tổng tiền:</strong> <span id="cfTotal"></span></p>
+      <p><strong>Ngày giao:</strong> <span id="cfDate"></span></p>
+      <div class="confirm-actions">
+        <button id="confirmBtn" type="button" class="primary">Xác nhận</button>
+        <button id="cancelBtn" type="button" class="secondary">Hủy</button>
+      </div>
+      <span class="msg" id="confirmMsg"></span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
